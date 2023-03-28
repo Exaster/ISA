@@ -58,6 +58,10 @@ class FirstScreen extends StatelessWidget {
     );
   }
 }
+void hello_test(){
+  print("Hello!");
+
+}
 /*
 * class FirstScreen extends StatelessWidget {
   @override
