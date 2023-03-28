@@ -63,7 +63,7 @@ class ThirdScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => WebsiteScreen(url: 'https://asu.pnu.edu.ua/search-groups.html'),
+                    builder: (context) => WebsiteScreen(url: 'https://d-learn.pro/'),
                   ),
                 );
               },
@@ -75,7 +75,7 @@ class ThirdScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => WebsiteScreen(url: 'https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?access_type=offline&prompt=select_account&scope=email%20profile%20openid&state=zglvOvMlxKCYMYQjGKKps6V5K6V&response_type=code&client_id=1002067757899-ulg60v3mhk4tak4j1isgjldn4i6smeb9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwebportal.pnu.edu.ua%2Fauth%2Fgoogle%2Fcallback&service=lso&o2v=2&flowName=GeneralOAuthFlow'),
+                    builder: (context) => WebsiteScreen(url: 'https://webportal.pnu.edu.ua/apps'),
                   ),
                 );
               },
