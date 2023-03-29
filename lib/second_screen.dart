@@ -4,16 +4,20 @@ import 'third_screen.dart';
 import 'dart:ui';
 
 class SecondScreen extends StatelessWidget {
+  //Cтворення контролерів редагування тексту для полів електронної пошти та пароля
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  // визначити основний колір
   static const primaryColor = Color(0xFFAED581);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor,
+      backgroundColor: primaryColor, // встановити колір фону
       body: Stack(
         children: [
+          // Встановлення фонового зображення
           Image.asset(
             'assets/images/background.png',
             fit: BoxFit.cover,
@@ -26,13 +30,14 @@ class SecondScreen extends StatelessWidget {
               heightFactor: 0.6,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.lightBlue[100],
-                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.lightBlue[100], // Встановлення кольору контейнера
+                  borderRadius: BorderRadius.circular(30), // Встановлення радіусу кордону
                 ),
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20), // set container padding
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
+                    // Створення текстового поля електронної пошти
                     TextFormField(
                       controller: emailController,
                       decoration: InputDecoration(
@@ -46,6 +51,7 @@ class SecondScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                    // Створення текстового поля пароля
                     TextFormField(
                       controller: passwordController,
                       obscureText: true,
@@ -63,6 +69,7 @@ class SecondScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        // створення кнопки входу
                         ElevatedButton(
                           onPressed: () {
                             Navigator.push(
@@ -76,11 +83,12 @@ class SecondScreen extends StatelessWidget {
                           },
                           child: Text('Login'),
                         ),
+                        // створення кнопки (Забув пароль).
                         ElevatedButton(
                           onPressed: () {
                             String url =
-                                "https://cit.pnu.edu.ua/corporate_email/";
-                            launch(url);
+                                "https://cit.pnu.edu.ua/corporate_email/"; // set url to launch
+                            launch(url); // launch url
                           },
                           child: Text('Forgot password'),
                         ),
