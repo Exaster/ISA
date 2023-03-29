@@ -69,5 +69,4 @@ class FirstScreen extends StatelessWidget {
       ),
     );
   }
-
-
+}
