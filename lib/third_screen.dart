@@ -19,8 +19,9 @@ class ThirdScreen extends StatelessWidget {
         backgroundColor: primaryColor,
         title: Text('Welcome $email'),
       ),
-      // Виконуємо зображення як фон екрана
-      body: Image.asset(
+
+      body:Image.asset(
+
         'assets/images/background.png',
         fit: BoxFit.fill,
         width: window.physicalSize.width,
@@ -141,3 +142,5 @@ class ThirdScreen extends StatelessWidget {
     );
   }
 }
+
+
