@@ -21,7 +21,7 @@ class ThirdScreen extends StatelessWidget {
         title: Text('Welcome $email'),
       ),
       body:Image.asset(
-          'assets/images/background.png',
+        'assets/images/background.png',
         fit: BoxFit.fill,
         width: window.physicalSize.width,
         height: window.physicalSize.height,
@@ -134,3 +134,5 @@ class ThirdScreen extends StatelessWidget {
     );
   }
 }
+
+
