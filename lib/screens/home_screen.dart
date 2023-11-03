@@ -323,7 +323,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           ListTile(
             leading: Icon(
-                Icons.slideshow_outlined), // Icon for the "Презентація" item
+                Icons.code), // Icon for the "Презентація" item
             title: Text('Git'),
             onTap: () {
               // Launch the presentation URL using the _launchURL function
