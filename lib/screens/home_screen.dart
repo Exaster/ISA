@@ -13,12 +13,28 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<WebsiteItem> websiteItems = [
-    WebsiteItem(title: 'Розклад', url: 'https://asu.pnu.edu.ua/search-groups.html', icon: Icons.schedule),
-    WebsiteItem(title: 'Дистанційне навчання', url: 'https://d-learn.pro/', icon: Icons.desktop_mac),
-    WebsiteItem(title: 'Журнал', url: 'https://webportal.pnu.edu.ua/apps', icon: Icons.assignment),
-    WebsiteItem(title: 'Новини', url: 'https://pnu.edu.ua', icon: Icons.new_releases),
-    WebsiteItem(title: 'Навігація', url: 'https://city.dozor.tech/ua/iv-frankivsk/city', icon: Icons.navigation),
-    WebsiteItem(title: 'Путівник студента', url: 'https://pnu.edu.ua/studentam-2/', icon: Icons.school),
+    WebsiteItem(
+        title: 'Розклад',
+        url: 'https://asu.pnu.edu.ua/search-groups.html',
+        icon: Icons.schedule),
+    WebsiteItem(
+        title: 'Дистанційне\n'+'  навчання',
+        url: 'https://d-learn.pro/',
+        icon: Icons.desktop_mac),
+    WebsiteItem(
+        title: 'Журнал',
+        url: 'https://webportal.pnu.edu.ua/apps',
+        icon: Icons.assignment),
+    WebsiteItem(
+        title: 'Новини', url: 'https://pnu.edu.ua', icon: Icons.new_releases),
+    WebsiteItem(
+        title: 'Навігація',
+        url: 'https://city.dozor.tech/ua/iv-frankivsk/city',
+        icon: Icons.navigation),
+    WebsiteItem(
+        title: 'Путівник студента',
+        url: 'https://pnu.edu.ua/studentam-2/',
+        icon: Icons.school),
   ];
 
   String username = '';
@@ -49,13 +65,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void saveNotes() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList('notes', userNotes.map((note) => note.text).toList());
+    await prefs.setStringList(
+        'notes', userNotes.map((note) => note.text).toList());
   }
 
   void loadNotes() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      userNotes = (prefs.getStringList('notes') ?? []).map((text) => Note(text: text)).toList();
+      userNotes = (prefs.getStringList('notes') ?? [])
+          .map((text) => Note(text: text))
+          .toList();
     });
   }
 
@@ -96,6 +115,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 _showDialog('Аватар', 'In development rn😁');
               } else if (value == 'change_colors') {
                 _changeColors();
+              } else if (value == 'third_color_option') {
+                // Handle the third color option here
               }
             },
             itemBuilder: (BuildContext context) {
@@ -114,7 +135,10 @@ class _HomeScreenState extends State<HomeScreen> {
           gradient: LinearGradient(
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
-            colors: [backgroundColor.withOpacity(0.3), headerColor.withOpacity(0.9)], // Ця ХРІНЬ ВІДПОВІДАЄ ЗА ГУСТИНУ КОЛЬОРІВ
+            colors: [
+              backgroundColor.withOpacity(0.3),
+              headerColor.withOpacity(0.9)
+            ], // Ця ХРІНЬ ВІДПОВІДАЄ ЗА ГУСТИНУ КОЛЬОРІВ
           ),
         ),
         child: Column(
@@ -126,21 +150,40 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisCount: 3,
                     childAspectRatio: 1.0,
                     shrinkWrap: true,
-                    children: websiteItems.map((item) => _buildTile(context, item)).toList(),
+                    children: websiteItems
+                        .map((item) => _buildTile(context, item))
+                        .toList(),
                   ),
                   ...userNotes.asMap().entries.map((entry) {
                     final index = entry.key;
                     final note = entry.value;
-                    return ListTile(
-                      title: _buildNoteTextField(index, note),
-                      trailing: IconButton(
-                        icon: Icon(Icons.delete),
-                        onPressed: () {
-                          setState(() {
-                            userNotes.removeAt(index);
-                          });
-                          saveNotes();
-                        },
+                    return Container(
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                      padding: EdgeInsets.all(5.0), // Reduce the padding here
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 1,
+                            blurRadius: 3,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: ListTile(
+                        title: _buildNoteTextField(index, note),
+                        trailing: IconButton(
+                          icon: Icon(Icons.delete),
+                          onPressed: () {
+                            setState(() {
+                              userNotes.removeAt(index);
+                            });
+                            saveNotes();
+                          },
+                        ),
                       ),
                     );
                   }).toList(),
@@ -176,7 +219,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-
   Widget _buildTile(BuildContext context, WebsiteItem item) {
     return GestureDetector(
       onTap: () {
@@ -185,14 +227,19 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Card(
         color: Colors.blue,
         elevation: 2.0,
-        child: Center(
+        child: Container(
+          padding: const EdgeInsets.all(8.0),
+          alignment: Alignment.center, // Center the text horizontally and vertically
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(item.icon, color: Colors.white, size: 40.0),
               Text(
                 item.title,
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                ),
               ),
             ],
           ),
@@ -200,6 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
 
   Widget _buildNoteTextField(int index, Note note) {
     return ListTile(
@@ -221,29 +269,34 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildNotesTextField() {
     return Container(
+      margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
-        border: Border.all(color: headerColor),
-        borderRadius: BorderRadius.circular(10.0),
+        color: Colors.white, // Set the background color to white
+        borderRadius: BorderRadius.circular(20.0), // Add rounded corners
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 3,
+            blurRadius: 5,
+            offset: Offset(0, 3), // Add a shadow for a modern look
+          ),
+        ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: TextField(
-          controller: notesController,
-          maxLines: null,
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            labelText: 'Додати нотатку',
-            filled: true,
-            fillColor: Colors.white, // Set the background color
-            labelStyle: TextStyle(
-              fontSize: 16.0,
-              color: headerColor,
-            ),
-          ),
-          style: TextStyle(
+      child: TextField(
+        controller: notesController,
+        maxLines: null,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: 'Додати нотатку',
+          hintStyle: TextStyle(
             fontSize: 16.0,
-            color: headerColor,
+            color: Colors.grey,
           ),
+        ),
+        style: TextStyle(
+          fontSize: 16.0,
+          color: Colors.black, // You can change the text color
         ),
       ),
     );

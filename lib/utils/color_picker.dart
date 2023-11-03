@@ -6,11 +6,13 @@ class ColorPicker extends StatelessWidget {
   final Function(Color) onHeaderColorSelected;
   final Function(Color) onBackgroundColorSelected;
 
+
   ColorPicker({
     required this.headerColor,
     required this.backgroundColor,
     required this.onHeaderColorSelected,
     required this.onBackgroundColorSelected,
+
   });
 
   @override
