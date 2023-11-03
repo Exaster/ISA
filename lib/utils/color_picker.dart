@@ -35,11 +35,11 @@ class ColorPicker extends StatelessWidget {
           ColorPickerButton(
             onColorSelected: onBackgroundColorSelected,
             colors: [
-              hexToColor("#E5F2F7"),  // Light Blue
-              hexToColor("#E6F7E4"),  // Pale Green
-              hexToColor("#F5F5F5"),  // Soft Gray
-              hexToColor("#FFEBD6"),  // Peach
-              hexToColor("#EAE7E9"),  // Lavender
+              hexToColor("#1BF702"),
+              hexToColor("#AA1BF7"),
+              hexToColor("#F7DD11"),
+              hexToColor("#FFEBD6"),
+              hexToColor("#EAE7E9"),
             ],
           ),
         ],

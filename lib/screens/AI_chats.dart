@@ -5,37 +5,36 @@ import '/utils/color_picker.dart';
 import '/widgets/website_item.dart';
 import '/models/note.dart';
 import '/utils/shared_preferences.dart';
-import 'AI_chats.dart';
+import '/screens/home_screen.dart';
 
-class HomeScreen extends StatefulWidget {
+class AIchat extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _AIchatState createState() => _AIchatState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _AIchatState extends State<AIchat> {
   final List<WebsiteItem> websiteItems = [
     WebsiteItem(
-        title: 'Розклад',
-        url: 'https://asu.pnu.edu.ua/search-groups.html',
-        icon: Icons.schedule),
+      title: 'GPT',
+      url: 'https://chat.openai.com/',
+      icon: Icons.public, // Use the public icon
+    ),
     WebsiteItem(
-        title: 'Дистанційне\n' + '  навчання',
-        url: 'https://d-learn.pro/',
-        icon: Icons.desktop_mac),
+      title: 'Google Bard',
+      url: 'https://bard.google.com/',
+      icon: Icons.music_note,
+    ),
     WebsiteItem(
-        title: 'Журнал',
-        url: 'https://webportal.pnu.edu.ua/apps',
+        title: 'Bing',
+        url:
+            'https://www.bing.com/search?form=MY0291&OCID=MY0291&q=Bing+AI&showconv=1',
         icon: Icons.assignment),
     WebsiteItem(
-        title: 'Новини', url: 'https://pnu.edu.ua', icon: Icons.new_releases),
-    WebsiteItem(
-        title: 'Навігація',
-        url: 'https://city.dozor.tech/ua/iv-frankivsk/city',
-        icon: Icons.navigation),
-    WebsiteItem(
-        title: 'Путівник студента',
-        url: 'https://pnu.edu.ua/studentam-2/',
-        icon: Icons.school),
+        title: 'C.ai',
+        url: 'https://beta.character.ai/',
+        icon: Icons.chat_bubble_outline_outlined),
+    WebsiteItem(title: 'Flux', url: 'https://www.flux.ai/p', icon: Icons.build),
+    WebsiteItem(title: 'TinEye', url: 'https://tineye.com/', icon: Icons.build),
   ];
 
   String username = 'Користувач';

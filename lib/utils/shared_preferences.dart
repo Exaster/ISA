@@ -1,9 +1,6 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-
 import '../models/note.dart';
 
 class SharedPreferencesHelper {
