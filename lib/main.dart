@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
 import '/screens/home_screen.dart';
-import 'main.dart';
+
 
 void main() => runApp(MyApp());
 

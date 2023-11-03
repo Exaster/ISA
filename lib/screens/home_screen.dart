@@ -77,10 +77,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Calculate a slightly lighter color based on headerColor
+    // Adjust the opacity as needed
+
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         title: Text(username),
-        backgroundColor: headerColor, // Set the header color
+        backgroundColor: headerColor,
         actions: [
           PopupMenuButton<String>(
             onSelected: (value) {
@@ -97,71 +101,81 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (BuildContext context) {
               return [
                 _buildPopupMenuItem('change_username', 'Змінити псевдонім'),
-                _buildPopupMenuItem('theme', 'Тема'),
                 _buildPopupMenuItem('avatar', 'Аватар'),
-                _buildPopupMenuItem('change_colors', 'Змінити кольори'),
+                _buildPopupMenuItem('change_colors', 'Тема'),
               ];
             },
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView(
-              children: [
-                GridView.count(
-                  crossAxisCount: 3,
-                  childAspectRatio: 1.0,
-                  shrinkWrap: true,
-                  children: websiteItems.map((item) => _buildTile(context, item)).toList(),
-                ),
-                ...userNotes.asMap().entries.map((entry) {
-                  final index = entry.key;
-                  final note = entry.value;
-                  return ListTile(
-                    title: _buildNoteTextField(index, note),
-                    trailing: IconButton(
-                      icon: Icon(Icons.delete),
+      body: Container(
+        // Use a LinearGradient to create the desired gradient
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [backgroundColor.withOpacity(0.3), headerColor.withOpacity(0.9)], // Ця ХРІНЬ ВІДПОВІДАЄ ЗА ГУСТИНУ КОЛЬОРІВ
+          ),
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView(
+                children: [
+                  GridView.count(
+                    crossAxisCount: 3,
+                    childAspectRatio: 1.0,
+                    shrinkWrap: true,
+                    children: websiteItems.map((item) => _buildTile(context, item)).toList(),
+                  ),
+                  ...userNotes.asMap().entries.map((entry) {
+                    final index = entry.key;
+                    final note = entry.value;
+                    return ListTile(
+                      title: _buildNoteTextField(index, note),
+                      trailing: IconButton(
+                        icon: Icon(Icons.delete),
+                        onPressed: () {
+                          setState(() {
+                            userNotes.removeAt(index);
+                          });
+                          saveNotes();
+                        },
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+            ),
+            BottomAppBar(
+              color: headerColor,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: _buildNotesTextField(),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.add, color: Colors.white),
                       onPressed: () {
                         setState(() {
-                          userNotes.removeAt(index);
+                          userNotes.add(Note(text: notesController.text));
+                          notesController.text = '';
                         });
                         saveNotes();
                       },
                     ),
-                  );
-                }).toList(),
-              ],
-            ),
-          ),
-          BottomAppBar(
-            color: headerColor, // Set the bottom app bar color
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: _buildNotesTextField(),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.add, color: Colors.white),
-                    onPressed: () {
-                      setState(() {
-                        userNotes.add(Note(text: notesController.text));
-                        notesController.text = '';
-                      });
-                      saveNotes();
-                    },
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
+
 
   Widget _buildTile(BuildContext context, WebsiteItem item) {
     return GestureDetector(
@@ -220,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
             border: InputBorder.none,
             labelText: 'Додати нотатку',
             filled: true,
-            fillColor: backgroundColor, // Set the background color
+            fillColor: Colors.white, // Set the background color
             labelStyle: TextStyle(
               fontSize: 16.0,
               color: headerColor,
