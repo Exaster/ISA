@@ -8,6 +8,8 @@ import '/utils/shared_preferences.dart';
 import 'AI_chats.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -19,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
         url: 'https://asu.pnu.edu.ua/search-groups.html',
         icon: Icons.schedule),
     WebsiteItem(
-        title: 'Дистанційне\n' + '  навчання',
+        title: 'Дистанційне\n навчання',
         url: 'https://d-learn.pro/',
         icon: Icons.desktop_mac),
     WebsiteItem(
@@ -152,8 +154,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     final note = entry.value;
                     return Container(
                       margin:
-                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                      padding: EdgeInsets.all(5.0),
+                          const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                      padding: const EdgeInsets.all(5.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
@@ -162,14 +164,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: Colors.grey.withOpacity(0.3),
                             spreadRadius: 1,
                             blurRadius: 3,
-                            offset: Offset(0, 2),
+                            offset: const Offset(0, 2),
                           ),
                         ],
                       ),
                       child: ListTile(
                         title: _buildNoteTextField(index, note),
                         trailing: IconButton(
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
                           onPressed: () {
                             setState(() {
                               userNotes.removeAt(index);
@@ -179,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     );
-                  }).toList(),
+                  }),
                 ],
               ),
             ),
@@ -193,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: _buildNotesTextField(),
                     ),
                     IconButton(
-                      icon: Icon(Icons.add, color: Colors.white),
+                      icon: const Icon(Icons.add, color: Colors.white),
                       onPressed: () {
                         setState(() {
                           userNotes.add(Note(text: notesController.text));
@@ -220,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: Card(
         elevation: 2.0,
-        margin: EdgeInsets.all(18.0),
+        margin: const EdgeInsets.all(18.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
@@ -237,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Icon(item.icon, color: Colors.white, size: 40.0),
               Text(
                 item.title,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16.0,
                 ),
@@ -260,7 +262,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Center(
               child: Text(
                 username,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20.0,
                 ),
@@ -268,37 +270,37 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home), // Icon for the "Головна" item
-            title: Text('Головна'),
+            leading: const Icon(Icons.home), // Icon for the "Головна" item
+            title: const Text('Головна'),
             onTap: () {
               // Then navigate to the home screen
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => HomeScreen(),
+                builder: (context) => const HomeScreen(),
               ));
             },
           ),
           ListTile(
             leading:
-                Icon(Icons.person), // Icon for the "Змінити псевдонім" item
-            title: Text('Змінити псевдонім'),
+                const Icon(Icons.person), // Icon for the "Змінити псевдонім" item
+            title: const Text('Змінити псевдонім'),
             onTap: _changeUsername,
           ),
           ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text('Фото'),
+            leading: const Icon(Icons.account_circle),
+            title: const Text('Фото'),
             onTap: () {
               _showDialog('Фото', 'In development rn😁');
             },
           ),
           ListTile(
-            leading: Icon(Icons.palette), // Icon for the "Тема" item
-            title: Text('Тема'),
+            leading: const Icon(Icons.palette), // Icon for the "Тема" item
+            title: const Text('Тема'),
             onTap: _changeColors,
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
                 Icons.chat_bubble), // Icon for the "Тема" item (Android robot)
-            title: Text('ШІ допомога'),
+            title: const Text('ШІ допомога'),
             onTap: () {
               // Then navigate to the home screen
               Navigator.of(context).push(MaterialPageRoute(
@@ -307,28 +309,21 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
                 Icons.slideshow_outlined), // Icon for the "Презентація" item
-            title: Text('Презентація'),
+            title: const Text('Презентація'),
             onTap: () {
-              // Define the URL and title for your presentation
-              final presentationUrl =
-                  'https://www.canva.com/design/DAFzIsvddJE/3ym-LYWUEHvHdsOZRvXpiQ/view?utm_content=DAFzIsvddJE&utm_campaign=designshare&utm_medium=link&utm_source=editor'; // Replace with your presentation URL
-              final presentationTitle =
-                  'Презентація Програми'; // Replace with your presentation title
-
-              // Launch the presentation URL using the _launchURL function
-              _launchURL(context, presentationUrl, presentationTitle);
+              _launchURL(context,'https://www.canva.com/design/DAFzIsvddJE/3ym-LYWUEHvHdsOZRvXpiQ/view?utm_content=DAFzIsvddJE&utm_campaign=designshare&utm_medium=link&utm_source=editor',  'Презентація Програми');
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
                 Icons.code), // Icon for the "Презентація" item
-            title: Text('Git'),
+            title: const Text('Git'),
             onTap: () {
               // Launch the presentation URL using the _launchURL function
               _launchURL(
-                  context, "https://github.com/Exaster/ISA.git", 'Код проекту');
+                  context, "https://github.com/Exaster/ISA", 'Код проекту');
             },
           ),
         ],
@@ -346,7 +341,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
           saveNotes();
         },
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 18.0,
           color: Colors.black,
         ),
@@ -356,8 +351,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildNotesTextField() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20.0),
@@ -366,14 +361,14 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 3,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
       child: TextField(
         controller: notesController,
         maxLines: null,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'Додати нотатку',
           hintStyle: TextStyle(
@@ -381,7 +376,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.grey,
           ),
         ),
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 16.0,
           color: Colors.black,
         ),
@@ -389,12 +384,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  PopupMenuItem<String> _buildPopupMenuItem(String value, String label) {
-    return PopupMenuItem<String>(
-      value: value,
-      child: Text(label),
-    );
-  }
 
   void _showDialog(String title, String content) {
     showDialog(
@@ -408,7 +397,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );
@@ -422,12 +411,12 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context) {
         String newUsername = username;
         return AlertDialog(
-          title: Text('Змінити псевдонім'),
+          title: const Text('Змінити псевдонім'),
           content: TextField(
             onChanged: (text) {
               newUsername = text;
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Новий псевдонім',
             ),
           ),
@@ -440,7 +429,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 saveUsername();
                 Navigator.of(context).pop();
               },
-              child: Text('Зберегти'),
+              child: const Text('Зберегти'),
             ),
           ],
         );
