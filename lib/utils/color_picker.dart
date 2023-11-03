@@ -28,7 +28,6 @@ class ColorPicker extends StatelessWidget {
               hexToColor("#009688"),  // Teal
               hexToColor("#FF5733"),  // Dark Orange
               hexToColor("#673AB7"),  // Deep Purple
-
             ],
           ),
           SizedBox(height: 16.0),
@@ -41,12 +40,6 @@ class ColorPicker extends StatelessWidget {
               hexToColor("#F5F5F5"),  // Soft Gray
               hexToColor("#FFEBD6"),  // Peach
               hexToColor("#EAE7E9"),  // Lavender
-              Colors.white,
-              Colors.grey,
-              Colors.yellow,
-              Colors.pink,
-              Colors.teal,
-              Colors.blue,
             ],
           ),
         ],
@@ -74,8 +67,8 @@ class ColorPickerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Wrap(
+      alignment: WrapAlignment.center,
       children: [
         for (final color in colors)
           Padding(

@@ -174,7 +174,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       child: ListTile(
+
                         title: _buildNoteTextField(index, note),
+
                         trailing: IconButton(
                           icon: Icon(Icons.delete),
                           onPressed: () {
@@ -225,11 +227,19 @@ class _HomeScreenState extends State<HomeScreen> {
         _launchURL(context, item.url, item.title);
       },
       child: Card(
-        color: backgroundColor.withOpacity(0.7),//.withOpacity(0.85), // Adjust opacity here
         elevation: 2.0,
+        margin: EdgeInsets.all(18.0), // Add margin for rounded border
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0), // Add rounded border
+        ),
         child: Container(
           padding: const EdgeInsets.all(8.0),
           alignment: Alignment.center, // Center the text horizontally and vertically
+          decoration: BoxDecoration(
+            color: headerColor.withOpacity(0.93),
+            borderRadius: BorderRadius.circular(10.0), // Add rounded border to the container
+
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -237,7 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 item.title,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.white,//.withOpacity(0.1),
                   fontSize: 16.0,
                 ),
               ),
@@ -247,6 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
 
 
 
