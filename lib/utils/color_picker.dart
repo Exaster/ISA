@@ -6,42 +6,47 @@ class ColorPicker extends StatelessWidget {
   final Function(Color) onHeaderColorSelected;
   final Function(Color) onBackgroundColorSelected;
 
-
   ColorPicker({
     required this.headerColor,
     required this.backgroundColor,
     required this.onHeaderColorSelected,
     required this.onBackgroundColorSelected,
-
   });
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Обрати кольори'),
+      title: Text('Choose Colors'),
       content: Column(
         children: [
-          Text('Обрати колір заголовка:'),
+          Text('Choose a header color:'),
           ColorPickerButton(
             onColorSelected: onHeaderColorSelected,
             colors: [
-              Colors.blue,
-              Colors.red,
-              Colors.green,
-              Colors.purple,
-              Colors.amber,
+              hexToColor("#333333"),  // Dark Gray
+              hexToColor("#1A237E"),  // Navy Blue
+              hexToColor("#009688"),  // Teal
+              hexToColor("#FF5733"),  // Dark Orange
+              hexToColor("#673AB7"),  // Deep Purple
+
             ],
           ),
           SizedBox(height: 16.0),
-          Text('Обрати колір фону:'),
+          Text('Choose a background color:'),
           ColorPickerButton(
             onColorSelected: onBackgroundColorSelected,
             colors: [
+              hexToColor("#E5F2F7"),  // Light Blue
+              hexToColor("#E6F7E4"),  // Pale Green
+              hexToColor("#F5F5F5"),  // Soft Gray
+              hexToColor("#FFEBD6"),  // Peach
+              hexToColor("#EAE7E9"),  // Lavender
               Colors.white,
               Colors.grey,
               Colors.yellow,
               Colors.pink,
               Colors.teal,
+              Colors.blue,
             ],
           ),
         ],
@@ -51,7 +56,7 @@ class ColorPicker extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text('Закрити'),
+          child: Text('Close'),
         ),
       ],
     );
@@ -62,7 +67,10 @@ class ColorPickerButton extends StatelessWidget {
   final Function(Color) onColorSelected;
   final List<Color> colors;
 
-  ColorPickerButton({required this.onColorSelected, required this.colors});
+  ColorPickerButton({
+    required this.onColorSelected,
+    required this.colors,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -91,4 +99,8 @@ class ColorPickerButton extends StatelessWidget {
       ],
     );
   }
+}
+
+Color hexToColor(String hexColor) {
+  return Color(int.parse(hexColor.substring(1, 7), radix: 16) + 0xFF000000);
 }

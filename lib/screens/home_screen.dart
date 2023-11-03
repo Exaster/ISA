@@ -133,8 +133,8 @@ class _HomeScreenState extends State<HomeScreen> {
         // Use a LinearGradient to create the desired gradient
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
             colors: [
               backgroundColor.withOpacity(0.3),
               headerColor.withOpacity(0.9)
@@ -225,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
         _launchURL(context, item.url, item.title);
       },
       child: Card(
-        color: Colors.blue,
+        color: backgroundColor.withOpacity(0.7),//.withOpacity(0.85), // Adjust opacity here
         elevation: 2.0,
         child: Container(
           padding: const EdgeInsets.all(8.0),
@@ -247,6 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
 
 
   Widget _buildNoteTextField(int index, Note note) {
