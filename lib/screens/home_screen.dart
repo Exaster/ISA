@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
         url: 'https://asu.pnu.edu.ua/search-groups.html',
         icon: Icons.schedule),
     WebsiteItem(
-        title: 'Дистанційне\n навчання',
+        title: 'dlearn',
         url: 'https://d-learn.pro/',
         icon: Icons.desktop_mac),
     WebsiteItem(

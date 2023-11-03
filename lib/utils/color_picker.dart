@@ -16,10 +16,10 @@ class ColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Choose Colors'),
+      title: Text('Вибір теми'),
       content: Column(
         children: [
-          Text('Choose a header color:'),
+          Text('Основні кольори:'),
           ColorPickerButton(
             onColorSelected: onHeaderColorSelected,
             colors: [
@@ -31,7 +31,7 @@ class ColorPicker extends StatelessWidget {
             ],
           ),
           SizedBox(height: 16.0),
-          Text('Choose a background color:'),
+          Text('Фоновий колір'),
           ColorPickerButton(
             onColorSelected: onBackgroundColorSelected,
             colors: [
