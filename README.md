@@ -84,5 +84,5 @@ You can also create an issue on GitHub if you encounter any problems or have sug
 Chemistry Helper for Space Station 14 [here](https://github.com/Exaster/Space-Station-14-Chemistry-Helper)
 
 Thank you for using ISA and overlooking it as a simple educational project!
-```
+
 
