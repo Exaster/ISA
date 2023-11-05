@@ -16,11 +16,12 @@ class ColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Вибір теми'),
+      title: Text('Вибір теми', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 1)])),
       content: SingleChildScrollView(
         child: Column(
           children: [
-            Text('Основні кольори для заголовків:'),
+            Text('Основні кольори для заголовків:', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 1)]),
+            ),
             ColorPickerButton(
               onColorSelected: onHeaderColorSelected,
               colors: [
@@ -47,7 +48,8 @@ class ColorPicker extends StatelessWidget {
               ],
             ),
             SizedBox(height: 16.0),
-            Text('Фонові кольори:'),
+            Text('Фонові кольори:', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 1)]),
+            ),
             ColorPickerButton(
               onColorSelected: onBackgroundColorSelected,
               colors: [
@@ -81,9 +83,13 @@ class ColorPicker extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text('Close'),
+          child: Text('Закрити', style: TextStyle(shadows: [Shadow(color:  Colors.blue.withOpacity(0.1), blurRadius: 1)]),
+          ),
         ),
       ],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.0),
+      ),
     );
   }
 }
@@ -119,6 +125,13 @@ class ColorPickerButton extends StatelessWidget {
                       color: Colors.black,
                       width: 2.0,
                     ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: color,
+                        offset: Offset(0, 0),
+                        blurRadius: 4,
+                      ),
+                    ],
                   ),
                 ),
               ),
