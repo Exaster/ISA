@@ -1,9 +1,7 @@
-Thank you for providing your README.md content and specifying the names of your screenshots. Here's an updated version of your README.md with the added screenshots:
-
 ```markdown
 # Intelligent Study Assistant (ISA)
 
-![ISA Logo](app_logo.png)
+![ISA Logo](https://github.com/Exaster/ISA/blob/main/app_logo.png)
 
 ISA (Intelligent Study Assistant) is a Flutter app designed to help you organize your study sessions, access relevant information, and interact with AI chatbots. The app is customizable, allowing you to personalize your experience.
 
@@ -17,19 +15,19 @@ ISA (Intelligent Study Assistant) is a Flutter app designed to help you organize
 
 ## Screenshots
 
-![Home Screen](lib/screenshots/main_screen.png)
+![Home Screen](https://github.com/Exaster/ISA/blob/main/screenshots/main_screen.png)
 
-![AI Chat](lib/screenshots/AI.png)
+![AI Chat](https://github.com/Exaster/ISA/blob/main/screenshots/AI.png)
 
-![Customization](lib/screenshots/colors.png)
+![Customization](https://github.com/Exaster/ISA/blob/main/screenshots/colors.png)
 
-![University Links](lib/screenshots/PNU.png)
+![University Links](https://github.com/Exaster/ISA/blob/main/screenshots/PNU.png)
 
-![Side Menu](lib/screenshots/sidemenu.png)
+![Side Menu](https://github.com/Exaster/ISA/blob/main/screenshots/sidemenu.png)
 
-![Presentation](lib/screenshots/presentation.png)
+![Presentation](https://github.com/Exaster/ISA/blob/main/screenshots/presentation.png)
 
-![User Customization](lib/screenshots/name.png)
+![User Customization](https://github.com/Exaster/ISA/blob/main/screenshots/name.png)
 
 ## Installation
 
@@ -70,7 +68,6 @@ Contributions to ISA are welcome! You can contribute by:
 
 ## License
 
-
 Feel free to improve or remake for your own legal purpose!
 
 ## Contact
@@ -86,4 +83,4 @@ You can also create an issue on GitHub if you encounter any problems or have sug
 Thank you for using ISA and overlooking it as a simple educational project!
 ```
 
-I've updated your README.md with the specified screenshot file names. Make sure to ensure the file paths are correct, and the images are available in the `lib/screenshots/` directory in your repository. You can copy and paste this updated content into your README.md file on GitHub.
+Now the screenshots are viewable directly from your repository by providing the full URL to the images. You can copy and paste this updated content into your README.md file on GitHub.
