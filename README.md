@@ -43,9 +43,11 @@ ISA (Intelligent Study Assistant) is a Flutter app designed to help you organize
 ## Usage
 
 - Organize your study materials by adding notes.
-- Customize your username and app theme.
-- Access your favorite websites with one tap.
-- Interact with AI chatbots for quick information.
+- Flexible customisation.
+- Access your all basic websites for studying in university with one tap.
+- Interact with popular AI chatbots for quick information and small help.
+- University in your smartphone!
+  
 
 ## Contributing
 
@@ -61,9 +63,10 @@ Please follow the [Contribution Guidelines](CONTRIBUTING.md) for more details.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+
 ## Contact
 
-For any inquiries or issues, please contact contributors:
+I would like not to leave here my personal info for some reasons:)
 
 
 You can also create an issue on GitHub if you encounter any problems or have suggestions.
@@ -73,12 +76,6 @@ You can also create an issue on GitHub if you encounter any problems or have sug
 - [Flutter](https://flutter.dev): The framework used to build this app.
 - [OpenAI](https://openai.com): For AI chatbot integration.
 
-Thank you for using ISA!
+Thank you for using ISA and overlook as simple EE project!
 
-```
 
-Make sure to replace `[Your Name]` and `[Your Email]` with your contact information, and include any additional acknowledgments or credits as needed. You can also customize the content further to better describe your app's unique features and use cases.
-
-Don't forget to include screenshots of your app in the repository's `screenshots` directory, as referenced in the README.
-
-Once you've created this `README.md` file, you can place it in the root of your GitHub repository. It will serve as a user-friendly introduction to your project for potential users and contributors.
