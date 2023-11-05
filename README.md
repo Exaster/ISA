@@ -17,20 +17,15 @@ ISA (Intelligent Study Assistant) is a Flutter app designed to help you organize
 - **User-friendly Interface**: Clean and intuitive UI for an efficient user experience.
 
 ## Screenshots
+<p align="center">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/main_screen.png" width="200" alt="Home Screen">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/AI.png" width="200" alt="AI Chat">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/colors.png" width="200" alt="Customization">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/PNU.png" width="200" alt="University Links">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/presentation.png" width="200" alt="Presentation">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/name.png" width="200" alt="User Customization">
+</p>
 
-![Home Screen](https://github.com/Exaster/ISA/blob/main/screenshots/main_screen.png)
-
-![AI Chat](https://github.com/Exaster/ISA/blob/main/screenshots/AI.png)
-
-![Customization](https://github.com/Exaster/ISA/blob/main/screenshots/colors.png)
-
-![University Links](https://github.com/Exaster/ISA/blob/main/screenshots/PNU.png)
-
-![Side Menu](https://github.com/Exaster/ISA/blob/main/screenshots/sidemenu.png)
-
-![Presentation](https://github.com/Exaster/ISA/blob/main/screenshots/presentation.png)
-
-![User Customization](https://github.com/Exaster/ISA/blob/main/screenshots/name.png)
 
 ## Installation
 
