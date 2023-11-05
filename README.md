@@ -17,7 +17,7 @@ ISA (Intelligent Study Assistant) is a Flutter app designed to help you organize
 
 ## Screenshots
 
-![Home Screen](screenshots/Logo.png)
+![Home Screen](lib/screenshots/Logo.png)
 
 ## Installation
 
