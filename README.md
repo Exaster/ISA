@@ -19,9 +19,9 @@ ISA (Intelligent Study Assistant) is a Flutter app designed to help you organize
 ## Screenshots
 <p align="center">
     <img src="https://github.com/Exaster/ISA/blob/main/screenshots/main_screen.png" width="200" alt="Home Screen">
-    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/AI.png" width="200" alt="AI Chat">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/AI.png" width="200" alt="AI Chat"> <br>
     <img src="https://github.com/Exaster/ISA/blob/main/screenshots/colors.png" width="200" alt="Customization">
-    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/presentation.png" width="200" alt="Presentation">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/presentation.png" width="200" alt="Presentation"> <br>
     <img src="https://github.com/Exaster/ISA/blob/main/screenshots/name.png" width="200" alt="User Customization">
 </p>
 
