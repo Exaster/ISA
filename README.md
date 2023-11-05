@@ -1,4 +1,4 @@
-
+Thank you for providing your README.md content and specifying the names of your screenshots. Here's an updated version of your README.md with the added screenshots:
 
 ```markdown
 # Intelligent Study Assistant (ISA)
@@ -17,7 +17,19 @@ ISA (Intelligent Study Assistant) is a Flutter app designed to help you organize
 
 ## Screenshots
 
-![Home Screen](lib/screenshots/Logo.png)
+![Home Screen](lib/screenshots/main_screen.png)
+
+![AI Chat](lib/screenshots/AI.png)
+
+![Customization](lib/screenshots/colors.png)
+
+![University Links](lib/screenshots/PNU.png)
+
+![Side Menu](lib/screenshots/sidemenu.png)
+
+![Presentation](lib/screenshots/presentation.png)
+
+![User Customization](lib/screenshots/name.png)
 
 ## Installation
 
@@ -43,11 +55,10 @@ ISA (Intelligent Study Assistant) is a Flutter app designed to help you organize
 ## Usage
 
 - Organize your study materials by adding notes.
-- Flexible customisation.
-- Access your all basic websites for studying in university with one tap.
+- Flexible customization.
+- Access your all basic websites for studying in the university with one tap.
 - Interact with popular AI chatbots for quick information and small help.
 - University in your smartphone!
-  
 
 ## Contributing
 
@@ -57,16 +68,14 @@ Contributions to ISA are welcome! You can contribute by:
 - Implementing new features or improvements.
 - Fixing bugs and submitting pull requests.
 
-
 ## License
 
-Feel free to improve or remake for your own legal porpose!
 
+Feel free to improve or remake for your own legal purpose!
 
 ## Contact
 
 I would like not to leave here my personal info for some reasons:)
-
 
 You can also create an issue on GitHub if you encounter any problems or have suggestions.
 
@@ -74,7 +83,7 @@ You can also create an issue on GitHub if you encounter any problems or have sug
 
 - [Flutter](https://flutter.dev): The framework used to build this app.
 
+Thank you for using ISA and overlooking it as a simple educational project!
+```
 
-Thank you for using ISA and overlook as simple EE project!
-
-
+I've updated your README.md with the specified screenshot file names. Make sure to ensure the file paths are correct, and the images are available in the `lib/screenshots/` directory in your repository. You can copy and paste this updated content into your README.md file on GitHub.
