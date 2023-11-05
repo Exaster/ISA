@@ -6,6 +6,12 @@ import '/widgets/website_item.dart';
 import '/models/note.dart';
 import '/utils/shared_preferences.dart';
 import '/screens/home_screen.dart';
+import 'dart:io';
+import 'package:path/path.dart' as path;
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart' as shared_preferences;
+
 
 class AIchat extends StatefulWidget {
   @override
@@ -37,6 +43,7 @@ class _AIchatState extends State<AIchat> {
     WebsiteItem(title: 'TinEye', url: 'https://tineye.com/', icon: Icons.visibility),
   ];
 
+  File? _selectedImage;
   String username = 'Користувач';
   List<Note> userNotes = [];
   final TextEditingController notesController = TextEditingController();
@@ -48,6 +55,7 @@ class _AIchatState extends State<AIchat> {
     super.initState();
     loadUsername();
     loadNotes();
+    _loadSavedImage(); // Load saved image
     loadColors().then((colors) {
       setState(() {
         headerColor = colors['headerColor'] ?? Colors.blue;
@@ -94,6 +102,33 @@ class _AIchatState extends State<AIchat> {
     });
   }
 
+  Future<void> _loadSavedImage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final imagePath = prefs.getString('selected_image_path');
+    if (imagePath != null) {
+      setState(() {
+        _selectedImage = File(imagePath);
+      });
+    }
+  }
+
+  Future<void> _getImage() async {
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      final appDir = await getApplicationDocumentsDirectory();
+      final fileName = path.basename(pickedFile.path);
+      final savedImage = File(pickedFile.path).copySync('${appDir.path}/$fileName');
+
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('selected_image_path', savedImage.path);
+
+      setState(() {
+        _selectedImage = savedImage;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,26 +136,7 @@ class _AIchatState extends State<AIchat> {
       appBar: AppBar(
         title: Text(username),
         backgroundColor: headerColor,
-        actions: [
-          PopupMenuButton<String>(
-            onSelected: (value) {
-              if (value == 'change_username') {
-                _changeUsername();
-              } else if (value == 'theme') {
-                _showDialog('Тема', 'In development rn😁');
-              } else if (value == 'avatar') {
-                _showDialog('Фото', 'In development rn😁');
-              } else if (value == 'change_colors') {
-                _changeColors();
-              } else if (value == 'third_color_option') {
 
-              }
-            },
-            itemBuilder: (BuildContext context) {
-              return [];
-            },
-          ),
-        ],
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -286,7 +302,9 @@ class _AIchatState extends State<AIchat> {
             leading: const Icon(Icons.account_circle),
             title: const Text('Фото'),
             onTap: () {
-              _showDialog('Фото', 'In development rn😁');
+              _getImage(); // Open the image picker
+              Navigator.pop(context);
+              //_showDialog('Фото', 'In development rn😁');
             },
           ),
           ListTile(

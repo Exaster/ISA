@@ -6,6 +6,12 @@ import '/widgets/website_item.dart';
 import '/models/note.dart';
 import '/utils/shared_preferences.dart';
 import 'AI_chats.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as path;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -40,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
         icon: Icons.school),
   ];
 
+  File? _selectedImage;
   String username = 'Користувач';
   List<Note> userNotes = [];
   final TextEditingController notesController = TextEditingController();
@@ -49,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _loadSavedImage(); // Load saved image on app start
     loadUsername();
     loadNotes();
     loadColors().then((colors) {
@@ -97,6 +105,34 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  Future<void> _loadSavedImage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final imagePath = prefs.getString('selected_image_path');
+    if (imagePath != null) {
+      setState(() {
+        _selectedImage = File(imagePath);
+      });
+    }
+  }
+
+  Future<void> _getImage() async {
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      final appDir = await getApplicationDocumentsDirectory();
+      final fileName = path.basename(pickedFile.path);
+      final savedImage = File(pickedFile.path).copySync('${appDir.path}/$fileName');
+
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('selected_image_path', savedImage.path);
+
+      setState(() {
+        _selectedImage = savedImage;
+      });
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,26 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(username),
         backgroundColor: headerColor,
-        actions: [
-          PopupMenuButton<String>(
-            onSelected: (value) {
-              if (value == 'change_username') {
-                _changeUsername();
-              } else if (value == 'theme') {
-                _showDialog('Тема', 'In development rn😁');
-              } else if (value == 'avatar') {
-                _showDialog('Фото', 'In development rn😁');
-              } else if (value == 'change_colors') {
-                _changeColors();
-              } else if (value == 'third_color_option') {
-                // Handle the third color option here
-              }
-            },
-            itemBuilder: (BuildContext context) {
-              return [];
-            },
-          ),
-        ],
+
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -134,6 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor.withOpacity(0.3),
               headerColor.withOpacity(0.9),
             ],
+
           ),
         ),
         child: Column(
@@ -154,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     final note = entry.value;
                     return Container(
                       margin:
-                          const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                      const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                       padding: const EdgeInsets.all(5.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -260,12 +278,22 @@ class _HomeScreenState extends State<HomeScreen> {
               color: headerColor,
             ),
             child: Center(
-              child: Text(
-                username,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                ),
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    backgroundColor: Colors.grey,
+                    backgroundImage: _selectedImage != null ? FileImage(_selectedImage!) : null,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    username,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -281,7 +309,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           ListTile(
             leading:
-                const Icon(Icons.person), // Icon for the "Змінити псевдонім" item
+            const Icon(Icons.person), // Icon for the "Змінити псевдонім" item
             title: const Text('Змінити псевдонім'),
             onTap: _changeUsername,
           ),
@@ -289,7 +317,9 @@ class _HomeScreenState extends State<HomeScreen> {
             leading: const Icon(Icons.account_circle),
             title: const Text('Фото'),
             onTap: () {
-              _showDialog('Фото', 'In development rn😁');
+              _getImage(); // Open the image picker
+              Navigator.pop(context);
+             //_showDialog('Фото', 'In development rn😁');
             },
           ),
           ListTile(
