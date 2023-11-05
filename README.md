@@ -80,4 +80,3 @@ You can also create an issue on GitHub if you encounter any problems or have sug
 Thank you for using ISA and overlooking it as a simple educational project!
 ```
 
-Now the screenshots are viewable directly from your repository by providing the full URL to the images. You can copy and paste this updated content into your README.md file on GitHub.
