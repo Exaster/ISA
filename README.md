@@ -79,8 +79,9 @@ You can also create an issue on GitHub if you encounter any problems or have sug
 - [Flutter](https://flutter.dev): The framework used to build this app.
 
 ## See extra
+
+![Space Station 14](https://cdn.cloudflare.steamstatic.com/steam/apps/1255460/capsule_616x353.jpg?t=1684170495) <br>
 Chemistry Helper for Space Station 14 [here](https://github.com/Exaster/Space-Station-14-Chemistry-Helper)
-![Space Station 14](https://cdn.cloudflare.steamstatic.com/steam/apps/1255460/capsule_616x353.jpg?t=1684170495)
 
 Thank you for using ISA and overlooking it as a simple educational project!
 ```
