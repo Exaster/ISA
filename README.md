@@ -1,7 +1,9 @@
+![ISA Logo](https://github.com/Exaster/ISA/blob/main/screenshots/PNU.png)
 ```markdown
+
 # Intelligent Study Assistant (ISA)
 
-![ISA Logo](https://github.com/Exaster/ISA/blob/main/screenshots/PNU.png)
+
 ![Space Station 14](https://cdn.cloudflare.steamstatic.com/steam/apps/1255460/capsule_616x353.jpg?t=1684170495)
 
 ISA (Intelligent Study Assistant) is a Flutter app designed to help you organize your study sessions, access relevant information, and interact with AI chatbots. The app is customizable, allowing you to personalize your experience.
