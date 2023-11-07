@@ -77,7 +77,7 @@ You can also create an issue on GitHub if you encounter any problems or have sug
 ## Acknowledgments
 
 - [Flutter](https://flutter.dev): The framework used to build this app.
-- [Dart](https://dart.dev/guides): The framework used to build this app.
+- [Dart](https://dart.dev/guides): The programming language used to build this app.
 
 ## See extra
 
