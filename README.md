@@ -86,6 +86,8 @@ Easy check of released versions of app without headache [ISA`s release](https://
 
 Thank you for using ISA and overlooking it as a simple educational project!
 
+
+
 Another pet-project:
 
 
