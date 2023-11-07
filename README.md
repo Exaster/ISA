@@ -80,6 +80,9 @@ You can also create an issue on GitHub if you encounter any problems or have sug
 
 ## See extra
 
+Easy check of released versions of app without headache [ISA`s release](https://github.com/Exaster/ISA-release)
+
+
 ![Space Station 14](https://cdn.cloudflare.steamstatic.com/steam/apps/1255460/capsule_616x353.jpg?t=1684170495) <br>
 Chemistry Helper for Space Station 14 [here](https://github.com/Exaster/Space-Station-14-Chemistry-Helper)
 
