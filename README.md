@@ -1,9 +1,10 @@
-Thank you for providing your README.md content and specifying the names of your screenshots. Here's an updated version of your README.md with the added screenshots:
 
-```markdown
-# Intelligent Study Assistant (ISA)
 
-![ISA Logo](app_logo.png)
+
+# Intelligent Study Assistant (ISA or PNUapp)
+![ISA Logo](https://github.com/Exaster/ISA/blob/main/screenshots/PNU.png)
+
+
 
 ISA (Intelligent Study Assistant) is a Flutter app designed to help you organize your study sessions, access relevant information, and interact with AI chatbots. The app is customizable, allowing you to personalize your experience.
 
@@ -16,20 +17,15 @@ ISA (Intelligent Study Assistant) is a Flutter app designed to help you organize
 - **User-friendly Interface**: Clean and intuitive UI for an efficient user experience.
 
 ## Screenshots
+<p align="center">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/main_screen.png" width="200" alt="Home Screen">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/AI.png" width="200" alt="AI Chat"> <br>
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/colors.png" width="200" alt="Customization">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/presentation.png" width="200" alt="Presentation"> <br>
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/name.png" width="200" alt="User Customization">
+    <img src="https://github.com/Exaster/ISA/blob/main/screenshots/sidemenu.png" width="200" alt="User Customization">
+</p>
 
-![Home Screen](lib/screenshots/main_screen.png)
-
-![AI Chat](lib/screenshots/AI.png)
-
-![Customization](lib/screenshots/colors.png)
-
-![University Links](lib/screenshots/PNU.png)
-
-![Side Menu](lib/screenshots/sidemenu.png)
-
-![Presentation](lib/screenshots/presentation.png)
-
-![User Customization](lib/screenshots/name.png)
 
 ## Installation
 
@@ -70,7 +66,6 @@ Contributions to ISA are welcome! You can contribute by:
 
 ## License
 
-
 Feel free to improve or remake for your own legal purpose!
 
 ## Contact
@@ -83,7 +78,11 @@ You can also create an issue on GitHub if you encounter any problems or have sug
 
 - [Flutter](https://flutter.dev): The framework used to build this app.
 
-Thank you for using ISA and overlooking it as a simple educational project!
-```
+## See extra
 
-I've updated your README.md with the specified screenshot file names. Make sure to ensure the file paths are correct, and the images are available in the `lib/screenshots/` directory in your repository. You can copy and paste this updated content into your README.md file on GitHub.
+![Space Station 14](https://cdn.cloudflare.steamstatic.com/steam/apps/1255460/capsule_616x353.jpg?t=1684170495) <br>
+Chemistry Helper for Space Station 14 [here](https://github.com/Exaster/Space-Station-14-Chemistry-Helper)
+
+Thank you for using ISA and overlooking it as a simple educational project!
+
+
